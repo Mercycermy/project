@@ -7,7 +7,7 @@ const About = () => {
   const values = [
     {
       icon: Users,
-      title: 'Customer Intelligence',
+      title: 'Customer Intelligence.',
       description: 'We believe our customers are intelligent and deserve respect, transparency, and honest communication in all our interactions.'
     },
     {
