@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Filter, Eye, ExternalLink, Calendar, User } from 'lucide-react';
 import Section from '../components/Section';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filters = [
     { id: 'all', name: 'All Projects' },
@@ -112,7 +112,30 @@ const Portfolio = () => {
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
-  const ProjectModal = ({ project, onClose }) => (
+  interface ProjectDetails {
+    challenge: string;
+    solution: string;
+    results: string;
+    specifications: string;
+  }
+
+  interface Project {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    client: string;
+    date: string;
+    details: ProjectDetails;
+  }
+
+  interface ProjectModalProps {
+    project: Project;
+    onClose: () => void;
+  }
+
+  const ProjectModal = ({ project, onClose }: ProjectModalProps) => (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         <div className="relative">
@@ -132,7 +155,7 @@ const Portfolio = () => {
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-3xl font-bold text-gray-900">{project.title}</h2>
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium capitalize">
+            <span className="px-3 py-1 bg-primary-300 text-primary-50 rounded-full text-sm font-medium capitalize">
               {project.category}
             </span>
           </div>
@@ -156,22 +179,22 @@ const Portfolio = () => {
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-3 text-blue-600">Challenge</h3>
+              <h3 className="text-xl font-semibold mb-3 text-primary-600">Challenge</h3>
               <p className="text-gray-700 leading-relaxed">{project.details.challenge}</p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-3 text-green-600">Solution</h3>
+              <h3 className="text-xl font-semibold mb-3 text-primary-200">Solution</h3>
               <p className="text-gray-700 leading-relaxed">{project.details.solution}</p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-3 text-red-600">Results</h3>
+              <h3 className="text-xl font-semibold mb-3 text-primary-400">Results</h3>
               <p className="text-gray-700 leading-relaxed">{project.details.results}</p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-3 text-yellow-600">Specifications</h3>
+              <h3 className="text-xl font-semibold mb-3 text-primary-300">Specifications</h3>
               <p className="text-gray-700 leading-relaxed">{project.details.specifications}</p>
             </div>
           </div>
@@ -183,7 +206,7 @@ const Portfolio = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-20">
+      <section className="bg-gradient-to-r from-primary-100 to-primary-50 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Our Portfolio
@@ -208,7 +231,7 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(filter.id)}
               className={`px-6 py-2 rounded-full font-medium transition-colors duration-200 ${
                 activeFilter === filter.id
-                  ? 'bg-red-500 text-white'
+                  ? 'bg-primary-500 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -233,7 +256,7 @@ const Portfolio = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="opacity-0 group-hover:opacity-100 bg-white text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2"
+                    className="opacity-0 group-hover:opacity-100 bg-white text-primary-200 px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center space-x-2"
                   >
                     <Eye className="h-4 w-4" />
                     <span>View Details</span>
@@ -243,7 +266,7 @@ const Portfolio = () => {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
-                  <span className="text-sm text-blue-500 font-medium capitalize">
+                  <span className="text-sm text-primary-100 font-medium capitalize">
                     {project.category}
                   </span>
                 </div>
@@ -252,7 +275,7 @@ const Portfolio = () => {
                   <span className="text-sm text-gray-500">Client: {project.client}</span>
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="text-blue-500 hover:text-blue-600 font-medium text-sm flex items-center space-x-1"
+                    className="text-primary-100 hover:text-primary-200 font-medium text-sm flex items-center space-x-1"
                   >
                     <span>View Details</span>
                     <ExternalLink className="h-3 w-3" />
@@ -265,7 +288,7 @@ const Portfolio = () => {
       </Section>
 
       {/* Testimonials Section */}
-      <Section title="What Our Clients Say" background="blue">
+      <Section title="What Our Clients Say" className='bg-primary-50'>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="mb-4">

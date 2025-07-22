@@ -50,12 +50,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E90FF;
+  background: #8F5742;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #9e6a57;
 }
 
 /* Loading animation */
@@ -118,7 +118,7 @@ html {
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #1E90FF, #0284c7);
+  background: linear-gradient(135deg, #B18461, #cd8f5f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -170,13 +170,13 @@ html {
 
 /* Focus styles */
 *:focus {
-  outline: 2px solid #1E90FF;
+  outline: 2px solid #B18461;
   outline-offset: 2px;
 }
 
 /* Selection styles */
 ::selection {
-  background: #1E90FF;
+  background: #ce9468;
   color: white;
 }
 

@@ -1,15 +1,12 @@
-import React from 'react';
 import { FileText, Shirt, Gift, Coffee, Palette, Briefcase, BookOpen, Package, Printer, Zap } from 'lucide-react';
 import Section from '../components/Section';
-import Card from '../components/Card';
-
 const Services = () => {
   const serviceCategories = [
     {
       icon: Package,
       title: 'Paper & Packaging',
       description: 'Complete paper printing and packaging solutions for all your business needs.',
-      color: 'bg-blue-500',
+      color: 'bg-primary-200',
       services: [
         { name: 'Magazines', desc: 'Professional magazine printing with various paper types (60g-300g+)' },
         { name: 'Books', desc: 'High-quality book printing with custom covers and binding' },
@@ -26,7 +23,7 @@ const Services = () => {
       icon: Shirt,
       title: 'Textile Printing',
       description: 'Custom textile printing on various materials with vibrant colors and durable quality.',
-      color: 'bg-green-500',
+      color: 'bg-primary-300',
       services: [
         { name: 'T-shirts', desc: 'Custom t-shirt printing (S-3XL sizes available)' },
         { name: 'Polo Shirts', desc: 'Professional polo shirt printing with custom logos' },
@@ -41,7 +38,7 @@ const Services = () => {
       icon: Zap,
       title: 'Promotional Items',
       description: 'Eye-catching promotional materials to boost your brand visibility and marketing efforts.',
-      color: 'bg-red-500',
+      color: 'bg-primary-400',
       services: [
         { name: 'Light Boxes', desc: 'Illuminated advertising displays for maximum visibility' },
         { name: 'Rollup Banners', desc: 'Portable rollup banners for events and exhibitions' },
@@ -56,7 +53,7 @@ const Services = () => {
       icon: Coffee,
       title: 'Drinkware',
       description: 'Custom drinkware solutions perfect for corporate gifts and promotional campaigns.',
-      color: 'bg-yellow-500',
+      color: 'bg-primary-500',
       services: [
         { name: 'Smart Thermos', desc: 'High-tech thermos with temperature control' },
         { name: 'Ceramic Cups', desc: 'Custom ceramic mug printing with logos' },
@@ -70,7 +67,7 @@ const Services = () => {
       icon: Palette,
       title: 'Design Services',
       description: 'Creative design solutions that bring your brand vision to life with professional expertise.',
-      color: 'bg-green-500',
+      color: 'bg-primary-600',
       services: [
         { name: 'Logo Design', desc: 'Professional logo creation for brand identity' },
         { name: 'Brand Identity', desc: 'Complete branding packages and guidelines' },
@@ -84,7 +81,7 @@ const Services = () => {
       icon: Briefcase,
       title: 'Gift Materials',
       description: 'Unique and personalized gift items perfect for corporate events and special occasions.',
-      color: 'bg-red-500',
+      color: 'bg-primary-100',
       services: [
         { name: 'Custom Watches', desc: 'Personalized watches with company branding' },
         { name: 'Magic Pillows', desc: 'Color-changing pillows with custom designs' },
@@ -98,7 +95,7 @@ const Services = () => {
       icon: BookOpen,
       title: 'School & Office Supply',
       description: 'Essential office and school supplies customized with your branding and specifications.',
-      color: 'bg-blue-500',
+      color: 'bg-primary-50',
       services: [
         { name: 'Agendas & Notebooks', desc: 'Custom notebook and agenda printing' },
         { name: 'Pens & Pen Holders', desc: 'Branded writing instruments and holders' },
@@ -141,10 +138,10 @@ const Services = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-20">
+      <section className="bg-gradient-to-r from-primary-50 to-primary-100 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
-            <Printer className="h-16 w-16 text-yellow-400" />
+            <Printer className="h-16 w-16 text-primary-400" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Our Printing Services
@@ -188,11 +185,11 @@ const Services = () => {
       </Section>
 
       {/* Process Section */}
-      <Section title="Our Process" subtitle="How we deliver exceptional results" background="blue">
+      <Section title="Our Process" subtitle="How we deliver exceptional results" className='bg-primary-50'>
         <div className="grid md:grid-cols-5 gap-8">
           {processSteps.map((step, index) => (
             <div key={index} className="text-center">
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-red-600 transition-colors">
+              <div className="w-16 h-16 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-red-600 transition-colors">
                 <span className="text-white font-bold text-lg">{step.step}</span>
               </div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
@@ -206,28 +203,28 @@ const Services = () => {
       <Section title="Why Choose Our Services?" background="gray">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center group">
-            <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+            <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-300 transition-colors">
               <FileText className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Quality Materials</h3>
             <p className="text-gray-600">Premium materials and cutting-edge printing technology</p>
           </div>
           <div className="text-center group">
-            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-600 transition-colors">
+            <div className="w-16 h-16 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-300 transition-colors">
               <Shirt className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Customization</h3>
             <p className="text-gray-600">Fully customizable options for size, color, and design</p>
           </div>
           <div className="text-center group">
-            <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors">
+            <div className="w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-600 transition-colors">
               <Gift className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
             <p className="text-gray-600">Quick turnaround times without compromising quality</p>
           </div>
           <div className="text-center group">
-            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-600 transition-colors">
+            <div className="w-16 h-16 bg-primary-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-600 transition-colors">
               <Coffee className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Expert Support</h3>

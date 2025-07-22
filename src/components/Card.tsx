@@ -4,7 +4,7 @@ import { DivideIcon as LucideIcon } from 'lucide-react';
 interface CardProps {
   title: string;
   description: string;
-  icon?: LucideIcon;
+  icon?: typeof LucideIcon;
   image?: string;
   className?: string;
   children?: React.ReactNode;
@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
       hover ? 'hover:shadow-xl transition-shadow duration-300' : ''
     } ${className}`}>
       {image && (
-        <div className="h-48 bg-gray-200 overflow-hidden">
+        <div className="h-48 bg-primary-50 overflow-hidden">
           <img 
             src={image} 
             alt={title}
@@ -37,8 +37,8 @@ const Card: React.FC<CardProps> = ({
       <div className="p-6">
         {Icon && (
           <div className="flex items-center mb-4">
-            <Icon className="h-8 w-8 text-blue-500 mr-3" />
-            <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+            <Icon className="h-8 w-8 text-primary-400 mr-3" />
+            <h3 className="text-xl font-semibold text-primary-600">{title}</h3>
           </div>
         )}
         
@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({
           <h3 className="text-xl font-semibold text-gray-900 mb-4">{title}</h3>
         )}
         
-        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-primary-300 mb-4">{description}</p>
         
         {children}
       </div>

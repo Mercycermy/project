@@ -16,17 +16,17 @@ const Section: React.FC<SectionProps> = ({
   background = 'white'
 }) => {
   const backgrounds = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    blue: 'bg-blue-50',
-    dark: 'bg-gray-900'
+    white: 'bg-primary-50',
+    gray: 'bg-primary-100',
+    blue: 'bg-primary-200',
+    dark: 'bg-primary-600'
   };
 
   const textColors = {
-    white: 'text-gray-900',
-    gray: 'text-gray-900',
-    blue: 'text-gray-900',
-    dark: 'text-white'
+    white: 'text-primary-600',
+    gray: 'text-primary-600',
+    blue: 'text-primary-600',
+    dark: 'text-primary-50'
   };
 
   return (

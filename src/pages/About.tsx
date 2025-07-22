@@ -1,4 +1,3 @@
-import React from 'react';
 import { Target, Eye, Trophy, Heart, Users, Award } from 'lucide-react';
 import Section from '../components/Section';
 import Card from '../components/Card';
@@ -43,7 +42,7 @@ const About = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <Section background="gray">
+      <Section className="bg-primary-50">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             About Maleda Printing & Advertising
@@ -78,7 +77,7 @@ const About = () => {
       </Section>
 
       {/* Core Values */}
-      <Section title="Our Core Values" subtitle="The principles that guide our work and relationships" background="blue">
+      <Section title="Our Core Values" subtitle="The principles that guide our work and relationships" className='bg-primary-50'>
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <Card
@@ -106,45 +105,45 @@ const About = () => {
       </Section>
 
       {/* Why Choose Us */}
-      <Section title="Why Choose Us?" background="gray">
+      <Section title="Why Choose Us?" className='bg-primary-50'>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Award className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Quality Materials</h3>
             <p className="text-gray-600">Premium materials and cutting-edge printing technology</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Target className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Affordable Prices</h3>
             <p className="text-gray-600">Competitive pricing without compromising on quality</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Customization Options</h3>
             <p className="text-gray-600">Tailored solutions to meet your specific needs</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Trophy className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Quick Turnaround</h3>
             <p className="text-gray-600">Fast delivery times to meet your deadlines</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Heart className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Customer Service</h3>
             <p className="text-gray-600">Exceptional support throughout your project</p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-4">
               <Eye className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Sustainability</h3>

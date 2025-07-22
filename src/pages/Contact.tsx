@@ -52,7 +52,7 @@ const Contact = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <Section background="gray">
+      <Section className='bg-primary-50'>
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Contact Us
@@ -171,12 +171,12 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h3>
+                    <h3 className="text-lg font-semibold text-primary-300 mb-1">{info.title}</h3>
                     {info.details.map((detail, detailIndex) => (
                       <p key={detailIndex} className="text-gray-600">{detail}</p>
                     ))}
@@ -189,14 +189,14 @@ const Contact = () => {
             <div className="mt-8 space-y-4">
               <a
                 href="tel:+251935854117"
-                className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center justify-center w-full px-6 py-3 bg-primary-200 text-white rounded-lg hover:bg-primary-100 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call Now: +251-935-85-4117
               </a>
               <a
                 href="mailto:MaledaMaledal4@gmail.com"
-                className="flex items-center justify-center w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                className="flex items-center justify-center w-full px-6 py-3 bg-primary-200 text-white rounded-lg hover:bg-primary-100 transition-colors"
               >
                 <Mail className="h-5 w-5 mr-2" />
                 Email Us
@@ -207,7 +207,7 @@ const Contact = () => {
       </Section>
 
       {/* Map Section */}
-      <Section background="gray">
+      <Section className='bg-primary-50'>
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold mb-4 text-gray-900">Find Us</h2>
           <p className="text-gray-600">
