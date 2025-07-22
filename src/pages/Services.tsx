@@ -95,7 +95,7 @@ const Services = () => {
       icon: BookOpen,
       title: 'School & Office Supply',
       description: 'Essential office and school supplies customized with your branding and specifications.',
-      color: 'bg-primary-50',
+      color: 'bg-primary-600',
       services: [
         { name: 'Agendas & Notebooks', desc: 'Custom notebook and agenda printing' },
         { name: 'Pens & Pen Holders', desc: 'Branded writing instruments and holders' },
