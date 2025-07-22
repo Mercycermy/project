@@ -225,7 +225,7 @@ const Home = () => {
                 </Button>
               </Link>
               <a href="tel:+251935854117">
-                <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold">
+                <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-primary-300 hover:text-gray-900 px-8 py-4 text-lg font-semibold">
                   Call Now: +251-935-85-4117
                 </Button>
               </a>
