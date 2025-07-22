@@ -1,8 +1,8 @@
-import { ArrowRight, Award, Clock, Users, Star, Printer, Palette, Package, Shirt, Gift } from 'lucide-react';
+import { ArrowRight, Award, Clock, Users, Star, Palette, Package, Shirt, Gift } from 'lucide-react';
 import Button from '../components/Button';
 import Section from '../components/Section';
 import { Link } from 'react-router-dom';
-import homeHeroImg from '../assets/home.jpg'; 
+import homeHeroImg from '../assets/home.png'; 
 
 const Home = () => {
   const features = [
@@ -67,64 +67,58 @@ const Home = () => {
   ];
 
   return (
-    <div className="pt-16">
+    <div>    
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden ">
+      <section className="relative min-h-screen flex items-end overflow-hidden">
         <img
           src={homeHeroImg}
           alt="Maleda Printing Hero"
           className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ opacity: 0.6 }}
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 z-10 w-full">
           <div className="text-center">
             <div className="flex justify-center mb-8">
-              <div className="p-4 bg-primary-100/30 rounded-full">
-                <Printer className="h-16 w-16 text-primary-600" />
-              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
               <span className="text-primary-700">We are the</span>
-              <br />
               <span className="text-primary-50">Rising!</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 leading-relaxed text-primary-600">
-              Premium printing solutions that bring your vision to life. From concept to creation, 
-              we deliver exceptional quality that makes your brand stand out.
+            <p className="text-base md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-relaxed text-primary-50">
+              Your trusted partner for all printing needs. From business cards to large format banners, we deliver quality and service that stands out.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link to="/services">
-                <Button size="lg" className="bg-primary-700 hover:bg-primary-800 text-white px-8 py-4 text-lg font-semibold">
+                <Button size="sm" className="bg-primary-700 hover:bg-primary-800 text-white px-6 py-3 text-base font-semibold">
                   Explore Services
                   <ArrowRight className="ml-2 h-6 w-6" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="outline" size="lg" className="border-2 border-primary-400 text-primary-600 hover:bg-primary-600 hover:text-primary-50 px-8 py-4 text-lg font-semibold">
+                <Button variant="outline" size="sm" className="border-2 border-primary-400 text-primary-600 hover:bg-primary-600 hover:text-primary-50 px-6 py-3 text-base font-semibold">
                   Get Free Quote
                 </Button>
               </Link>
             </div>
             
             {/* Printing Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">500+</div>
-                <div className="text-sm md:text-base opacity-90">Happy Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">2000+</div>
-                <div className="text-sm md:text-base opacity-90">Projects Printed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">15+</div>
-                <div className="text-sm md:text-base opacity-90">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">24/7</div>
-                <div className="text-sm md:text-base opacity-90">Support</div>
-              </div>
-            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-sm mt-8">
+      <div className="text-center">
+        <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">500+</div>
+        <div className="opacity-80">Happy Clients</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">2000+</div>
+        <div className="opacity-80">Projects Printed</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">15+</div>
+        <div className="opacity-80">Years Experience</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">24/7</div>
+        <div className="opacity-80">Support</div>
+      </div>
+    </div>
           </div>
         </div>
       </section>
