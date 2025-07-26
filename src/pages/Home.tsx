@@ -80,10 +80,10 @@ const Home = () => {
             <div className="flex justify-center mb-8">
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
-              <span className="text-primary-700">We are the</span>
-              <span className="text-primary-50">Rising!</span>
+              <span className="text-white">We are the</span>
+              <span className="text-primary-700">Rising!</span>
             </h1>
-            <p className="text-base md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-relaxed text-primary-50">
+            <p className="text-base md:text-lg mb-6 max-w-2xl mx-auto opacity-90 leading-relaxed text-white">
               Your trusted partner for all printing needs. From business cards to large format banners, we deliver quality and service that stands out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -94,8 +94,8 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="outline" size="sm" className="border-2 border-primary-400 text-primary-600 hover:bg-primary-600 hover:text-primary-50 px-6 py-3 text-base font-semibold">
-                  Get Free Quote
+                <Button variant="outline" size="sm" className="border-2 border-primary-300 text-white hover:bg-primary-600 hover:text-primary-50 px-6 py-3 text-base font-semibold">
+                  Our Products
                 </Button>
               </Link>
             </div>
@@ -104,19 +104,20 @@ const Home = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-sm mt-8">
       <div className="text-center">
         <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">500+</div>
-        <div className="opacity-80">Happy Clients</div>
+        <div className="opacity-80 text-white">Happy Clients</div>
       </div>
       <div className="text-center">
         <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">2000+</div>
-        <div className="opacity-80">Projects Printed</div>
+        <div className="opacity-80 text-white">Projects Printed</div>
       </div>
       <div className="text-center">
-        <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">15+</div>
-        <div className="opacity-80">Years Experience</div>
-      </div>
+  <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">1500+</div>
+  <div className="opacity-80 text-white">Custom Designs</div>
+</div>
+
       <div className="text-center">
         <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">24/7</div>
-        <div className="opacity-80">Support</div>
+        <div className="opacity-80 text-white">Support</div>
       </div>
     </div>
           </div>
@@ -124,15 +125,15 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <Section title="Why Choose Maleda Printing?" background="gray">
+      <Section title={<span className='text-primary-700'>Why Choose Maleda Printing?</span>} background="gray" >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
               <div className="w-20 h-20 bg-primary-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-400 transition-colors">
                 <feature.icon className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-bold mb-4 text-light">{feature.title}</h3>
+              <p className="text-white leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -168,10 +169,10 @@ const Home = () => {
       </Section>
 
       {/* Trusted Clients */}
-      <Section title="Trusted by Leading Companies" className='bg-primary-100' >
+      <Section title="Trusted by Leading Companies"  >
         <div className="grid md:grid-cols-4 gap-8 ">
           {clients.map((client, index) => (
-            <div key={index} className="bg-white rounded-lg p-8 text-center shadow-md hover:shadow-lg transition-shadow">
+            <div key={index} className="bg-light rounded-lg p-8 text-center shadow-md hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">{client.logo}</div>
               <h3 className="font-semibold text-gray-900">{client.name}</h3>
             </div>
@@ -201,13 +202,13 @@ const Home = () => {
       </Section>
 
       {/* CTA Section */}
-      <Section background="dark">
-        <div className="text-center text-white">
+      <Section className='bg-light'>
+        <div className="text-center text-primary-400">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Print Your Success?
             </h2>
-            <p className="text-xl mb-8 text-gray-300 leading-relaxed">
+            <p className="text-xl mb-8 text- leading-relaxed">
               Join hundreds of satisfied clients who trust us with their printing needs. 
               Let's create something amazing together.
             </p>
@@ -219,7 +220,7 @@ const Home = () => {
                 </Button>
               </Link>
               <a href="tel:+251935854117">
-                <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-primary-300 hover:text-gray-900 px-8 py-4 text-lg font-semibold">
+                <Button variant="outline" size="lg" className="border-2 border-white  hover:bg-primary-300 hover:text-gray-900 px-8 py-4 text-lg font-semibold">
                   Call Now: +251-935-85-4117
                 </Button>
               </a>

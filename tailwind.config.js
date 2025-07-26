@@ -9,13 +9,13 @@ export default {
       },
       colors: {
         primary: {
-          50: '#F5E4B1',
-          100: '#D3B486',
+          50: '#Fffffff',
+          100: '#02080dff',
           200: '#B18461',
           300: '#8F5742',
           400: '#6E3029',
           500: '#4C1619',
-          600: '#2A0810',
+          600: '#380b04ff',
           700: '#FFC107' ,
           800: '#FFB300',
         },
@@ -54,6 +54,22 @@ export default {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      // tailwind.config.js
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        5: '#fff078',
+        10: '#ffd25b',
+        20: '#f8b13d',
+      }
+    },
+    borderRadius: {
+      'custom-left': '9999px 0 0 9999px',
+    },
+  },
+},
+
     },
   },
   plugins: [],

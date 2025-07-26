@@ -206,7 +206,7 @@ const Portfolio = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-100 to-primary-50 text-white py-20">
+      <section className="bg-gradient-to-r from-secondary to-surface text-primary-300 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Our Portfolio
@@ -362,12 +362,12 @@ const Portfolio = () => {
       </Section>
 
       {/* CTA Section */}
-      <Section background="dark">
-        <div className="text-center text-white">
+      <Section className='bg-light'>
+        <div className="text-center text-primary-300">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Create Your Next Project?
           </h2>
-          <p className="text-xl mb-8 text-gray-300">
+          <p className="text-xl mb-8 ">
             Let's discuss how we can bring your vision to life with our expertise and creativity.
           </p>
           <a 

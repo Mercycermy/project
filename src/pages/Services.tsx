@@ -1,6 +1,18 @@
-import { FileText, Shirt, Gift, Coffee, Palette, Briefcase, BookOpen, Package, Printer, Zap } from 'lucide-react';
+import { Shirt, Coffee, Palette, Briefcase, BookOpen, Package, Printer, Zap, ChevronDown } from 'lucide-react';
 import Section from '../components/Section';
+import { useState } from 'react';
+
 const Services = () => {
+  const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
+
+  const toggleDropdown = (categoryIndex: number, serviceIndex: number): void => {
+    const key = `${categoryIndex}-${serviceIndex}`;
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   const serviceCategories = [
     {
       icon: Package,
@@ -107,45 +119,14 @@ const Services = () => {
     }
   ];
 
-  const processSteps = [
-    {
-      step: '01',
-      title: 'Consultation',
-      description: 'We discuss your needs, requirements, and vision for the project.'
-    },
-    {
-      step: '02',
-      title: 'Design & Planning',
-      description: 'Our team creates designs and plans the production process.'
-    },
-    {
-      step: '03',
-      title: 'Production',
-      description: 'We use high-quality materials and advanced printing technology.'
-    },
-    {
-      step: '04',
-      title: 'Quality Control',
-      description: 'Every item undergoes rigorous quality checks before delivery.'
-    },
-    {
-      step: '05',
-      title: 'Delivery',
-      description: 'On-time delivery with excellent customer service and support.'
-    }
-  ];
-
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-50 to-primary-100 text-white py-20">
+      <section className="bg-gradient-to-r from-surface to-secondary  py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             <Printer className="h-16 w-16 text-primary-400" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our Printing Services
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Printing Services</h1>
           <p className="text-xl max-w-3xl mx-auto opacity-90">
             Comprehensive printing and design solutions for every need. From traditional printing 
             to modern digital solutions, we deliver exceptional results.
@@ -153,11 +134,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Service Categories */}
       <Section title="What We Offer" subtitle="Comprehensive printing and design solutions for every need">
         <div className="grid lg:grid-cols-2 gap-12">
-          {serviceCategories.map((category, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+          {serviceCategories.map((category, catIndex) => (
+            <div key={catIndex} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
               <div className={`${category.color} p-6`}>
                 <div className="flex items-center text-white">
                   <category.icon className="h-8 w-8 mr-4" />
@@ -165,97 +145,37 @@ const Services = () => {
                 </div>
                 <p className="text-white/90 mt-2">{category.description}</p>
               </div>
-              
-              <div className="p-6">
-                <div className="grid gap-4">
-                  {category.services.map((service, serviceIndex) => (
-                    <div key={serviceIndex} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                      <div className={`w-2 h-2 ${category.color} rounded-full mt-2 flex-shrink-0`}></div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900">{service.name}</h4>
-                        <p className="text-sm text-gray-600">{service.desc}</p>
+              <div className="p-6 border-t">
+                <div className="rounded-xl border border-gray-100 shadow-inner">
+                  {category.services.map((service, serviceIndex) => {
+                    const key = `${catIndex}-${serviceIndex}`;
+                    const isOpen = openDropdowns[key];
+                    return (
+                      <div key={serviceIndex} className="border-b last:border-none">
+                        <button
+                          onClick={() => toggleDropdown(catIndex, serviceIndex)}
+                          className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <div className={`w-2 h-2 ${category.color} rounded-full mt-1`}></div>
+                            <h4 className="font-semibold text-gray-900">{service.name}</h4>
+                          </div>
+                          <ChevronDown
+                            className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="px-8 pb-6 pt-2 text-sm text-gray-700 transition-all duration-300 ease-in-out space-y-3">
+                            <p className="text-gray-600">{service.desc}</p>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
           ))}
-        </div>
-      </Section>
-
-      {/* Process Section */}
-      <Section title="Our Process" subtitle="How we deliver exceptional results" className='bg-primary-50'>
-        <div className="grid md:grid-cols-5 gap-8">
-          {processSteps.map((step, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-red-600 transition-colors">
-                <span className="text-white font-bold text-lg">{step.step}</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-sm">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Why Choose Our Services */}
-      <Section title="Why Choose Our Services?" background="gray">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="text-center group">
-            <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-300 transition-colors">
-              <FileText className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Quality Materials</h3>
-            <p className="text-gray-600">Premium materials and cutting-edge printing technology</p>
-          </div>
-          <div className="text-center group">
-            <div className="w-16 h-16 bg-primary-200 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-300 transition-colors">
-              <Shirt className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Customization</h3>
-            <p className="text-gray-600">Fully customizable options for size, color, and design</p>
-          </div>
-          <div className="text-center group">
-            <div className="w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-600 transition-colors">
-              <Gift className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-            <p className="text-gray-600">Quick turnaround times without compromising quality</p>
-          </div>
-          <div className="text-center group">
-            <div className="w-16 h-16 bg-primary-800 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-600 transition-colors">
-              <Coffee className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Expert Support</h3>
-            <p className="text-gray-600">Professional guidance throughout your project</p>
-          </div>
-        </div>
-      </Section>
-
-      {/* CTA Section */}
-      <Section background="dark">
-        <div className="text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl mb-8 text-gray-300">
-            Contact us today for a free consultation and personalized quote.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-colors"
-            >
-              Get Free Quote
-            </a>
-            <a 
-              href="tel:+251935854117" 
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-red-500 text-red-500 font-medium rounded-lg hover:bg-red-500 hover:text-white transition-colors"
-            >
-              Call Now
-            </a>
-          </div>
         </div>
       </Section>
     </div>

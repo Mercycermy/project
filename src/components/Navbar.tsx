@@ -31,85 +31,72 @@ const Navbar = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const navBg = isHome && !scrolled ? 'bg-transparent' : 'bg-primary-50 shadow-md';
-
   return (
-    <nav className={`fixed w-full z-50 transition-colors duration-300 ${navBg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center transition-all duration-300 ease-in-out ${isHome && !scrolled ? 'mt-14 md:mt-18 h-36' : 'h-16'}`}>
-          <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={logo}
-              alt="Maleda Printing Logo"
-              className={`transition-all duration-300 ease-in-out ${
-  isHome
-    ? scrolled
-      ? "h-10 w-10"
-      : "h-36 w-24"
-    : "h-14 w-14"
-}`}
+    <nav className="fixed top-6 w-full z-50">
+  <div className="relative h-[72px]">
+    {/* Gradient Background from center to right with curved left */}
+    <div className="absolute top-0 left-1/2 w-1/2 h-full rounded-l-full bg-gradient-to-r from-[#ffd25b] via-[#fff078] to-[#f8b13d]"></div>
 
-            />
-            <span className={`text-xl font-bold ${isHome && !scrolled ? "text-primary-700 drop-shadow-lg" : "text-primary-700"}`}>
-              Maleda Printing
-            </span>
+    {/* Logo only on homepage - floating outside */}
+    {isHome && (
+  <div className="absolute top-12 left-12 -translate-y-1/2 z-20">
+    <Link to="/" className="flex items-center space-x-2">
+      <img
+        src={logo}
+        alt="Maleda Printing Logo"
+        className="sm:w-14 md:w-16 object-contain drop-shadow-lg"
+      />
+    </Link>
+  </div>
+)}
+
+
+    {/* Main Nav Content */}
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
+      <div className="hidden md:flex space-x-6 pr-2">
+        {navigation.map((item) => (
+          <Link
+            key={item.name}
+            to={item.href}
+            className={`text-white px-4 py-2 rounded-full font-medium transition duration-200 ${
+              location.pathname === item.href
+                ? 'bg-white text-[#f8b13d] font-bold'
+                : 'hover:bg-white/30'
+            }`}
+          >
+            {item.name}
           </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.href
-                      ? (isHome && !scrolled ? 'text-primary-50 bg-primary-400/20 font-semibold' : 'text-primary-400 bg-primary-100 font-semibold')
-                      : (isHome && !scrolled ? 'text-primary-50 hover:text-primary-200 hover:bg-primary-400/10' : 'text-primary-600 hover:text-primary-400 hover:bg-primary-100')
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
-                isHome && !scrolled ? "text-primary-50 hover:text-primary-200" : "text-primary-600 hover:text-primary-400"
-              }`}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className={`md:hidden ${isHome && !scrolled ? "bg-primary-400/80" : "bg-white"} border-t`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  location.pathname === item.href
-                    ? (isHome && !scrolled ? 'text-primary-50 bg-primary-400/40 font-semibold' : 'text-primary-400 bg-primary-100 font-semibold')
-                    : (isHome && !scrolled ? 'text-primary-50 hover:text-primary-200 hover:bg-primary-400/20' : 'text-primary-600 hover:text-primary-400 hover:bg-primary-100')
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
+      {/* Mobile Button */}
+      <div className="md:hidden">
+        <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* Mobile Navigation */}
+  {isOpen && (
+    <div className="md:hidden bg-gradient-to-r from-[#fff078] via-[#ffd25b] to-[#f8b13d] text-white">
+      <div className="px-4 py-4 space-y-2">
+        {navigation.map((item) => (
+          <Link
+            key={item.name}
+            to={item.href}
+            onClick={() => setIsOpen(false)}
+            className="block text-base font-semibold"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )}
+</nav>
+
   );
 };
 

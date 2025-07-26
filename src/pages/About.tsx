@@ -153,8 +153,8 @@ const About = () => {
       </Section>
 
       {/* Customer Support */}
-      <Section title="Customer Support" background="dark">
-        <div className="text-center text-white max-w-4xl mx-auto">
+      <Section title="Customer Support" className='bg-light'>
+        <div className="text-center text-primary-400 max-w-4xl mx-auto">
           <p className="text-xl mb-8">
             Our team of customer support professionals are always on hand to answer any questions 
             and provide guidance throughout the printing process. We believe that strong relationships 
