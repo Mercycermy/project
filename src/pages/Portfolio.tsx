@@ -362,7 +362,7 @@ const Portfolio = () => {
       </Section>
 
       {/* CTA Section */}
-      <Section className='bg-light'>
+      <Section className='bg-#F5F1E9'>
         <div className="text-center text-primary-300">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Create Your Next Project?

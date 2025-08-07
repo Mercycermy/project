@@ -5,6 +5,7 @@ interface SectionProps {
   subtitle?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
+   id?: string;
   background?: 'white' | 'gray' | 'blue' | 'dark';
 }
 
@@ -13,6 +14,7 @@ const Section: React.FC<SectionProps> = ({
   subtitle,
   children,
   className = '',
+  id,
   background = 'white'
 }) => {
   const backgrounds = {
@@ -30,7 +32,7 @@ const Section: React.FC<SectionProps> = ({
   };
 
   return (
-    <section className={`py-16 ${backgrounds[background]} ${className}`}>
+    <section id={id} className={`py-16 ${backgrounds[background]} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(title || subtitle) && (
           <div className="text-center mb-12">
